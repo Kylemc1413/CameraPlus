@@ -23,32 +23,32 @@ namespace CameraPlus
             }
             return false;
         }
-        
+
         public override void OnActiveSceneChanged(Scene from, Scene to)
         {
             if (to.name == "GameCore")
             {
-                //var standardLevelSceneSetupDataSO = Resources.FindObjectsOfTypeAll<StandardLevelScenesTransitionSetupDataSO>().FirstOrDefault();
-                //if(standardLevelSceneSetupDataSO)
-                //{
-                //    foreach(var pair in standardLevelSceneSetupDataSO.sceneInfoSceneSetupDataPairs)
-                //    {
-                //        if(pair.data is GameplayCoreSceneSetupData)
-                //        {
-                //            var sceneSetupData = (GameplayCoreSceneSetupData)pair.data;
-
-                //            var level = sceneSetupData.difficultyBeatmap.level;
-                //            Plugin.Log($"Level: {level.levelID}");
-                //            if (level is SongLoaderPlugin.OverrideClasses.CustomLevel)
-                //            {
-                //                if (LoadCameraData(Path.Combine((level as SongLoaderPlugin.OverrideClasses.CustomLevel).customSongInfo.path, "CameraMovementData.json")))
-                //                    data.ActiveInPauseMenu = false;
-                //            }
-                //        }
-                //    }
-                //}
+                // var standardLevelSceneSetupDataSO = Resources.FindObjectsOfTypeAll<StandardLevelScenesTransitionSetupDataSO>().FirstOrDefault();
+                // if(standardLevelSceneSetupDataSO)
+                // {
+                //     foreach(var pair in standardLevelSceneSetupDataSO.sceneInfoSceneSetupDataPairs)
+                //     {
+                //         if(pair.data is GameplayCoreSceneSetupData)
+                //         {
+                //             var sceneSetupData = (GameplayCoreSceneSetupData)pair.data;
+                   
+                //             var level = sceneSetupData.difficultyBeatmap.level;
+                //             Plugin.Log($"Level: {level.levelID}");
+                //             if (level is SongLoaderPlugin.OverrideClasses.CustomLevel)
+                //             {
+                //                 if (LoadCameraData(Path.Combine((level as SongLoaderPlugin.OverrideClasses.CustomLevel).customSongInfo.path, "CameraMovementData.json")))
+                //                     data.ActiveInPauseMenu = false;
+                //             }
+                //         }
+                //     }
+                // }
             }
-            else if(dataLoaded)
+            else if (dataLoaded)
             {
                 dataLoaded = false;
                 _cameraPlus.ThirdPersonPos = _cameraPlus.Config.Position;
@@ -95,7 +95,7 @@ namespace CameraPlus
         {
             public bool ActiveInPauseMenu = true;
             public List<Movements> Movements = new List<Movements>();
-            
+
             public bool LoadFromJson(string jsonString)
             {
                 Movements.Clear();
@@ -121,7 +121,7 @@ namespace CameraPlus
 
                         newMovement.Delay = movement["Delay"].AsFloat;
                         newMovement.Duration = Mathf.Clamp(movement["Duration"].AsFloat, 0.01f, float.MaxValue); // Make sure duration is at least 0.01 seconds, to avoid a divide by zero error
-                        
+
                         if (movement["EaseTransition"].IsBoolean)
                             newMovement.EaseTransition = movement["EaseTransition"].AsBool;
 
@@ -152,7 +152,7 @@ namespace CameraPlus
 
             if (movePerc == 1 && movementDelayEndTime <= DateTime.Now)
                 UpdatePosAndRot();
-                
+
             long differenceTicks = (movementEndTime - movementStartTime).Ticks;
             long currentTicks = (DateTime.Now - movementStartTime).Ticks;
             movePerc = Mathf.Clamp((float)currentTicks / (float)differenceTicks, 0, 1);
@@ -225,7 +225,7 @@ namespace CameraPlus
 
         protected void FindShortestDelta(ref Vector3 from, ref Vector3 to)
         {
-            if(Mathf.DeltaAngle(from.x, to.x) < 0)
+            if (Mathf.DeltaAngle(from.x, to.x) < 0)
                 from.x += 360.0f;
             if (Mathf.DeltaAngle(from.y, to.y) < 0)
                 from.y += 360.0f;
@@ -259,7 +259,7 @@ namespace CameraPlus
             if (!easeTransition)
                 return p;
 
-            if (p < 0.5f) //Cubic Hopefully
+            if (p < 0.5f) // Cubic Hopefully
             {
                 return 4 * p * p * p;
             }
