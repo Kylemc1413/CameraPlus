@@ -46,7 +46,7 @@ namespace CameraPlus
             {
                 Logger.Log($"Failed to apply harmony patches! {ex}", LogLevel.Error);
             }
-            
+
             // Add our default cameraplus camera
             CameraUtilities.AddNewCamera(Plugin.MainCamera);
 
@@ -62,7 +62,7 @@ namespace CameraPlus
         {
             yield return new WaitForSeconds(0.5f);
             // If any new cameras have been added to the config folder, render them
-           // if(to.name == )
+            // if(to.name == )
             CameraUtilities.ReloadCameras();
 
             if (ActiveSceneChanged != null)
@@ -89,13 +89,15 @@ namespace CameraPlus
         }
 
         public void OnSceneLoaded(Scene scene, LoadSceneMode sceneMode) { }
+
         public void OnSceneUnloaded(Scene scene) { }
+
         public void OnUpdate() { }
 
         public void OnFixedUpdate()
         {
             // Fix the cursor when the user resizes the main camera to be smaller than the canvas size and they hover over the black portion of the canvas
-            if (CameraPlusBehaviour.currentCursor != CameraPlusBehaviour.CursorType.None && !CameraPlusBehaviour.anyInstanceBusy && 
+            if (CameraPlusBehaviour.currentCursor != CameraPlusBehaviour.CursorType.None && !CameraPlusBehaviour.anyInstanceBusy &&
                 CameraPlusBehaviour.wasWithinBorder && CameraPlusBehaviour.GetTopmostInstanceAtCursorPos() == null)
             {
                 CameraPlusBehaviour.SetCursor(CameraPlusBehaviour.CursorType.None);

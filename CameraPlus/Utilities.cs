@@ -32,7 +32,7 @@ namespace CameraPlus
         private static Dictionary<string, System.Drawing.Image> _cachedImages = new Dictionary<string, System.Drawing.Image>();
         public static System.Drawing.Image LoadImageFromResources(string resourcePath)
         {
-            if(!_cachedImages.ContainsKey(resourcePath))
+            if (!_cachedImages.ContainsKey(resourcePath))
                 _cachedImages.Add(resourcePath, new System.Drawing.Bitmap(Assembly.GetCallingAssembly().GetManifestResourceStream(resourcePath)));
             return _cachedImages[resourcePath];
         }

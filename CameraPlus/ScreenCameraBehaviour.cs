@@ -32,7 +32,7 @@ namespace CameraPlus
             _cam.cullingMask = 0;
             _cam.stereoTargetEye = StereoTargetEyeMask.None;
         }
-        
+
         private void OnRenderImage(RenderTexture src, RenderTexture dest)
         {
             if (_renderTexture == null) return;

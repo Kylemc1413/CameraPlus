@@ -43,7 +43,7 @@ namespace CameraPlus
         public bool transparentWalls = false;
         public bool forceFirstPersonUpRight = false;
         public string movementScriptPath = String.Empty;
-        //public int maxFps = 90;
+        // public int maxFps = 90;
 
         public event Action<Config> ConfigChangedEvent;
 
@@ -123,6 +123,7 @@ namespace CameraPlus
                 firstPersonPosOffsetZ = value.z;
             }
         }
+
         public Vector3 FirstPersonRotationOffset
         {
             get
@@ -144,6 +145,7 @@ namespace CameraPlus
                 return new Vector3(0, 0, 0);
             }
         }
+
         public Vector3 DefaultFirstPersonRotationOffset
         {
             get

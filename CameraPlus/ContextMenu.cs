@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 using LogLevel = IPA.Logging.Logger.Level;
+
 namespace CameraPlus
 {
     public class ContextMenu : MonoBehaviour
@@ -14,35 +15,39 @@ namespace CameraPlus
             get
             {
                 return new Vector2(
-                   Mathf.Min(mousePosition.x / (Screen.width / 1600f), (Screen.width * ( 0.806249998f / (Screen.width / 1600f)))),
-                   Mathf.Min(mousePosition.y / (Screen.height / 900f), (Screen.height * (0.555555556f / (Screen.height / 900f))))
-                    );
+                   Mathf.Min(mousePosition.x / (Screen.width / 1600f), (Screen.width * (0.806249998f / (Screen.width / 1600f)))),
+                   Mathf.Min(mousePosition.y / (Screen.height / 900f), (Screen.height * (0.555555556f / (Screen.height / 900f)))));
             }
         }
+
         internal Vector2 mousePosition;
         internal bool showMenu;
         internal bool layoutMode = false;
         internal bool verify38 = false;
         internal CameraPlusBehaviour parentBehaviour;
+
         public void Awake()
         {
         }
+
         public void EnableMenu(Vector2 mousePos, CameraPlusBehaviour parentBehaviour)
         {
             this.enabled = true;
-     //       Console.WriteLine("Enable Menu");
+            // Console.WriteLine("Enable Menu");
             mousePosition = mousePos;
             showMenu = true;
             this.parentBehaviour = parentBehaviour;
             layoutMode = false;
             verify38 = false;
         }
+
         public void DisableMenu()
         {
             this.enabled = false;
-     //       Console.WriteLine("Disable Menu");
+            // Console.WriteLine("Disable Menu");
             showMenu = false;
         }
+
         void OnGUI()
         {
 
@@ -58,7 +63,7 @@ namespace CameraPlus
                 scale.z = 1;
                 Matrix4x4 originalMatrix = GUI.matrix;
                 GUI.matrix = Matrix4x4.TRS(new Vector3(0, 0, 0), Quaternion.identity, scale);
-                //Layer boxes for Opacity
+                // Layer boxes for Opacity
                 GUI.Box(new Rect(menuPos.x - 5, menuPos.y, 310, 400), "CameraPlus");
                 GUI.Box(new Rect(menuPos.x - 5, menuPos.y, 310, 400), "CameraPlus");
                 GUI.Box(new Rect(menuPos.x - 5, menuPos.y, 310, 400), "CameraPlus");
@@ -123,8 +128,8 @@ namespace CameraPlus
                         parentBehaviour.ThirdPerson = parentBehaviour.Config.thirdPerson;
                         parentBehaviour.ThirdPersonPos = parentBehaviour.Config.Position;
                         parentBehaviour.ThirdPersonRot = parentBehaviour.Config.Rotation;
-                        //FirstPersonOffset = Config.FirstPersonPositionOffset;
-                        //     FirstPersonRotationOffset = Config.FirstPersonRotationOffset;
+                        // FirstPersonOffset = Config.FirstPersonPositionOffset;
+                        // FirstPersonRotationOffset = Config.FirstPersonRotationOffset;
                         parentBehaviour.CreateScreenRenderTexture();
                         parentBehaviour.CloseContextMenu();
                         parentBehaviour.Config.Save();
@@ -174,7 +179,7 @@ namespace CameraPlus
                         parentBehaviour.Config.Save();
                         parentBehaviour.CloseContextMenu();
                     }
-                    //Layer
+                    // Layer
                     GUI.Box(new Rect(menuPos.x, menuPos.y + 65, 290, 70), "Layer: " + parentBehaviour.Config.layer);
                     if (GUI.Button(new Rect(menuPos.x, menuPos.y + 85, 140, 30), new GUIContent("-")))
                     {
@@ -188,7 +193,7 @@ namespace CameraPlus
                         parentBehaviour.CreateScreenRenderTexture();
                         parentBehaviour.Config.Save();
                     }
-                    //FOV
+                    // FOV
                     GUI.Box(new Rect(menuPos.x, menuPos.y + 125, 290, 70), "FOV: " + parentBehaviour.Config.fov);
                     if (GUI.Button(new Rect(menuPos.x, menuPos.y + 145, 140, 30), new GUIContent("-")))
                     {
@@ -204,7 +209,7 @@ namespace CameraPlus
                         parentBehaviour.CreateScreenRenderTexture();
                         parentBehaviour.Config.Save();
                     }
-                    //Render Scale
+                    // Render Scale
                     GUI.Box(new Rect(menuPos.x, menuPos.y + 185, 290, 70), "Render Scale: " + parentBehaviour.Config.renderScale.ToString("F1"));
                     if (GUI.Button(new Rect(menuPos.x, menuPos.y + 205, 140, 30), new GUIContent("-")))
                     {
