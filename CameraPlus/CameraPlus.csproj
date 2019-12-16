@@ -12,6 +12,7 @@
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
+    <BeatSaberDir>C:\Program Files (x86)\Steam\steamapps\common\Beat Saber\</BeatSaberDir>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -34,34 +35,34 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="0Harmony.1.2.0.1">
-      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Beat Saber\Libs\0Harmony.1.2.0.1.dll</HintPath>
+      <HintPath>$(BeatSaberDir)Libs\0Harmony.1.2.0.1.dll</HintPath>
     </Reference>
     <Reference Include="Assembly-CSharp, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Beat Saber\Beat Saber_Data\Managed\Assembly-CSharp.dll</HintPath>
+      <HintPath>$(BeatSaberDir)Beat Saber_Data\Managed\Assembly-CSharp.dll</HintPath>
     </Reference>
     <Reference Include="IPA.Loader, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Beat Saber\Beat Saber_Data\Managed\IPA.Loader.dll</HintPath>
+      <HintPath>$(BeatSaberDir)Beat Saber_Data\Managed\IPA.Loader.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="UnityEngine.CoreModule">
-      <HintPath>E:\Program Files (x86)\Steam\steamapps\common\Beat Saber\Beat Saber_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+      <HintPath>$(BeatSaberDir)Beat Saber_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.ImageConversionModule">
-      <HintPath>E:\Program Files (x86)\Steam\steamapps\common\Beat Saber\Beat Saber_Data\Managed\UnityEngine.ImageConversionModule.dll</HintPath>
+      <HintPath>$(BeatSaberDir)Beat Saber_Data\Managed\UnityEngine.ImageConversionModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.IMGUIModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Beat Saber\Beat Saber_Data\Managed\UnityEngine.IMGUIModule.dll</HintPath>
+      <HintPath>$(BeatSaberDir)Beat Saber_Data\Managed\UnityEngine.IMGUIModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.PhysicsModule">
-      <HintPath>E:\Program Files (x86)\Steam\steamapps\common\Beat Saber\Beat Saber_Data\Managed\UnityEngine.PhysicsModule.dll</HintPath>
+      <HintPath>$(BeatSaberDir)Beat Saber_Data\Managed\UnityEngine.PhysicsModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.VRModule">
-      <HintPath>E:\Program Files (x86)\Steam\steamapps\common\Beat Saber\Beat Saber_Data\Managed\UnityEngine.VRModule.dll</HintPath>
+      <HintPath>$(BeatSaberDir)Beat Saber_Data\Managed\UnityEngine.VRModule.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -96,7 +97,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>copy /Y "$(TargetDir)$(TargetFileName)" "C:\Program Files (x86)\Steam\steamapps\common\Beat Saber\Plugins"</PostBuildEvent>
+    <PostBuildEvent>copy /Y "$(TargetDir)$(TargetFileName)" "$(BeatSaberDir)Plugins"</PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
     <PreBuildEvent>REM "$(ProjectDir)..\..\PluginVersionSetter.exe" "$(ProjectDir)Properties\AssemblyInfo.cs" "$(ProjectDir)Plugin.cs"</PreBuildEvent>
