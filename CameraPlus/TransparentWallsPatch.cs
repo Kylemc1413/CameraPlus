@@ -1,15 +1,20 @@
 ﻿using Harmony;
+using UnityEngine;
 
 namespace CameraPlus
 {
-    [HarmonyPatch(typeof(StretchableCube))]
-    [HarmonyPatch("Awake", MethodType.Normal)]
+    [HarmonyPatch(typeof(ObstacleController))]
+    [HarmonyPatch("Init", MethodType.Normal)]
     public class TransparentWallsPatch
     {
         public static int WallLayerMask = 25;
-        public static void Postfix(StretchableCube __instance)
+        private static void Postfix(ref ObstacleController __instance)
         {
-            __instance.gameObject.layer = WallLayerMask;
+            Renderer mesh = __instance.gameObject?.GetComponentInChildren<Renderer>(false);
+            if (mesh?.gameObject)
+            {
+                mesh.gameObject.layer = WallLayerMask;
+            }
         }
     }
 }

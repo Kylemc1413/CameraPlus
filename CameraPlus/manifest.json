@@ -1,10 +1,10 @@
 ﻿{
-  "$schema": "https://raw.githubusercontent.com/nike4613/ModSaber-MetadataFileSchema/master/Schema.json",
+  "$schema": "https://raw.githubusercontent.com/beat-saber-modding-group/BSIPA-MetadataFileSchema/master/Schema.json",
   "author": "Various Modders",
   "description": "",
-  "gameVersion": "1.6.0",
+  "gameVersion": "1.6.2",
   "id": "CameraPlus",
   "name": "CameraPlus",
-  "version": "3.6.1",
+  "version": "3.6.2",
   "features": []
 }
