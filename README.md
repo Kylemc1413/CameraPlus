@@ -27,7 +27,7 @@ Edit that file to configure CameraPlus:
 
 | Parameter                   | Description                                                                                  |
 |-----------------------------|----------------------------------------------------------------------------------------------|
-| **fov**                     | Horizontal field of view of the camera                                                       |
+| **fov**                     | Vertical field of view of the camera                                                       |
 | **antiAliasing**            | Anti-aliasing setting for the camera (1, 2, 4 or 8 only)                                     |
 | **renderScale**             | The resolution scale of the camera relative to game window (similar to supersampling for VR) |
 | **positionSmooth**          | How much position should smooth **(SMALLER NUMBER = SMOOTHER)**                              |
